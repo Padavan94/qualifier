@@ -1,14 +1,14 @@
-import connectDB from "../../middleware/mongodb";
-import User from "../../models/user";
+import connectDB from '../../middleware/mongodb';
+import User from '../../models/user';
 
 export default connectDB(async (req, res) => {
   const newUser = new User({
-    name: 'Vadym'
-  })
+    name: 'Vadym',
+  });
 
   await newUser.save();
 
   const users = await User.find({});
 
-  res.status(200).json(users)
-})
+  res.status(200).json(users);
+});
